@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SERTIFIKASI | REZA DWI PUTRI</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+      type="image/x-icon"
+    />
+    <meta property="og:title" content="Sweeter - the sweetest site" />
+    <meta property="og:description" content="ujian sertifikasi kompetensi intermediate" />
+    <meta
+      property="og:image"
+      content="{{ url_for('static', filename='ogimage.jpg') }}"
+    />
+
+    <!-- Bulma CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
+    <!-- Font Awesome CSS -->
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+   <style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f5f5f5;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      
+      h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+      
+      input[type="text"] {
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      
+      button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      
+      button[type="submit"]:hover {
+        background-color: #0056b3;
+        transition: background-color 0.3s ease;
+      }
+      
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      
+      li {
+        margin-top: 10px;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      a {
+        color: #007bff;
+        text-decoration: none;
+        margin-left: 10px;
+      }
+
+    .footer {
+        position: absolute;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        padding: 20px 0;
+    }
+
+    .footer .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+  
+      .footer .info {
+        flex: 1;
+        text-align: left;
+      }
+</style>
+</head>
+<body>
+
+        <h1><center>Daftar Kutipan Dari Seseorang yang anda Ketahui<center></h1>
+    
+        <form action="/add_quote" method="POST">
+            <input type="text" name="kutipan" placeholder="Masukkan Kutipan">
+            <button type="submit">Tambah Kutipan</button>
+        </form>
+    
+        <ul>
+            {% for item in kutipan %}
+            <li>
+                <p>{{ item.quote }}</p>
+                <p>Tanggal: {{ item.created_at }}</p>
+                <a href="/delete_quote/{{ item._id }}">Hapus</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </br>
+
+        <h1><center>Daftar Kutipan Anda<center></h1>
+    
+        <form action="/detail" method="POST">
+            <input type="text" name="kutipan" placeholder="Masukkan kutipan ataupun pesan rahasia anda">
+            <button type="submit">Lihat Detail</button>
+        </form>
+
+        <footer class="footer">
+            <div class="container">
+              <div class="info">
+                <h5>Nama Lengkap:</h5>
+                <p>Reza Dwi Putri</p>
+                <h5>Domisili:</h5>
+                <p>Sumatera Barat</p>
+                <h5>ID Kegiatan:</h5>
+                <p>6296824</p>
+              </div>
+              <div class="info">
+                <h5>Hobi:</h5>
+                <p>Mendengarkan musik</p>
+              </div>
+              <div class="info">
+                <h5>Contact Person:</h5>
+                <p>email : reza.210170061@mhs.unimal.ac.id</p>
+                <p>ig : @rzadwiptri_25</p>
+              </div>
+            </div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
